@@ -198,7 +198,7 @@ class WrapperPrinter:
         self.file.write("\n# End loader\n\n")
         self.file.write(
             "add_library_search_dirs([%s])"
-            % ", ".join([repr(d) for d in self.options.runtime_libdirs])
+            % ", ".join(["os.path.dirname(os.path.realpath(__file__))"] + [repr(d) for d in self.options.runtime_libdirs])
         )
         self.file.write("\n")
 
